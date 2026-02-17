@@ -7,12 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BestShop.IoC\BestShop.IoC.csproj" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\Home\" />
+    <ProjectReference Include="..\BestShop.IoC\BestShop.IoC.csproj" />
   </ItemGroup>
 
 </Project>
