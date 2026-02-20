@@ -20,5 +20,15 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 		builder.Property(p => p.Mobile).IsRequired(false).HasMaxLength(20);
 		builder.Property(p => p.MobileActivationCode).IsRequired(false).HasMaxLength(6);
 		builder.Property(p => p.IsMobileConfirmed).IsRequired(true).HasDefaultValue(false);
+
+
+		#region Relations
+		builder.HasMany(u => u.UserAddresses)
+			.WithOne(a => a.User)
+			.HasForeignKey(a => a.UserId)
+			.OnDelete(DeleteBehavior.Cascade);
+
+
+		#endregion Relations
 	}
 }

@@ -6,6 +6,7 @@ public class BestShopContext(DbContextOptions<BestShopContext> options) : DbCont
 {
 	#region Users
 	public DbSet<User> Users { get; set; }
+	public DbSet<UserAddress> UserAddresses { get; set; }
 	#endregion Users
 
 

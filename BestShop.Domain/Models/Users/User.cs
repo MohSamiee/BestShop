@@ -37,8 +37,6 @@ public class User : BaseEntity<int>
 	#endregion Properties
 
 	#region Relation
-
-	//
-
+	public ICollection<UserAddress>? UserAddresses { get; set; }
 	#endregion Relation
 }

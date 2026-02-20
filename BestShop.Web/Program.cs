@@ -1,4 +1,11 @@
+using BestShop.Web.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+
+#region Register Database
+builder.ConfigDatabase();
+#endregion Register Database
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
