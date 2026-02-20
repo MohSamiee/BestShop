@@ -1,0 +1,65 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = PropertyDictionary.Register;
+}
+@section Header{
+    <style>
+        input[type="email"] {
+            direction: ltr;
+            text-align: left;
+        }
+
+        input[type="email"]::placeholder {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+}
+<!-- start of auth-container -->
+<div class="auth-container">
+    <div class="auth-title mb-3">@PropertyDictionary.Register</div>
+    <!-- start of auth-box -->
+    <div class="auth-box ui-box">
+        <!-- start of auth-form -->
+        <form asp-controller="Account" asp-action="Register" class="auth-form">
+            <!-- start of form-element -->
+            <div class="form-element-row mb-2">
+                <input asp-for="UserName" class="form-control" placeholder="@PropertyDictionary.UserName">
+            </div>
+
+            <div class="form-element-row rtl-placeholder mb-2">
+                <input asp-for="Email" class="form-control" placeholder="@PropertyDictionary.Email">
+            </div>
+
+            <div class="form-element-row mb-2">
+                <input asp-for="Password" class="form-control" placeholder="@PropertyDictionary.Password">
+            </div>
+
+            <div class="form-element-row mb-2">
+                <input asp-for="RePassword" class="form-control" placeholder="@PropertyDictionary.RePassword">
+            </div>
+            <!-- end of form-element -->
+            <!-- start of form-element -->
+            <div class="form-element-row mb-3">
+                <button class="btn btn-primary">@PropertyDictionary.Register</button>
+            </div>
+            <!-- end of form-element -->
+            <!-- start of form-element -->
+            <div class="form-element-row ">
+                <div class="mb-5">
+                    با ورود در سایت شما <a href="#" class="link">
+                        شرایط و
+                        قوانین
+                    </a> استفاده
+                    از تمام سرویس های
+                    سایت و <a href="#" class="link">قوانین حریم خصوصی</a> آن را می‌پذیرید.
+                </div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <!-- end of form-element -->
+        </form>
+        <!-- end of auth-form -->
+    </div>
+    <!-- end of auth-box -->
+</div>
+<!-- start of auth-container -->
