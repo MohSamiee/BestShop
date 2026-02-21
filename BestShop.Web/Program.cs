@@ -1,3 +1,4 @@
+using BestShop.IoC;
 using BestShop.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.ConfigDatabase();
 #endregion Register Database
 
+#region Register Services
 
+builder.Services.RegisterRepositories();
+
+builder.Services.RegisterServices();
+
+#endregion Register Services
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
