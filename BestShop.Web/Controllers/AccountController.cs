@@ -13,6 +13,10 @@ public class AccountController : Controller
 	}
 	#endregion Constructor
 
+	public IActionResult Index()
+	{
+		return View("SuccessRegister");
+	}
 	#region Register
 	[HttpGet("/Register")]
 	public IActionResult Register()
@@ -26,15 +30,17 @@ public class AccountController : Controller
 	{
 		if (!true)
 			return View();
-		var result =await _accountService.RegisterUserAsync(vm);
-		if(!result.IsSuccess && result.ModelStateErrors!=null && result.ModelStateErrors.Any())
+		var result = await _accountService.RegisterUserAsync(vm);
+		if (!result.IsSuccess && result.ModelStateErrors != null && result.ModelStateErrors.Any())
 		{
-			foreach(var error in result.ModelStateErrors)
+			foreach (var error in result.ModelStateErrors)
 			{
 				ModelState.AddModelError(error.ModelStateField, error.ModelStateErrorMessage);
 			}
 		}
-		return View();
+		if (!result.IsSuccess) return View(vm);
+
+		return View("SuccessRegister", vm);
 	}
 
 	#endregion Register

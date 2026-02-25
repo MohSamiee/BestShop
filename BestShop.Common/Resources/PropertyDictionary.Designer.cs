@@ -205,6 +205,15 @@ namespace BestShop.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to اتمام ثبت نام.
+        /// </summary>
+        public static string SuccessRegister {
+            get {
+                return ResourceManager.GetString("SuccessRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to نام کاربری.
         /// </summary>
         public static string UserName {

@@ -1,0 +1,24 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = PropertyDictionary.SuccessRegister;
+}
+<main class="page-content page-auth">
+    <!-- start of auth-container -->
+    <div class="auth-container alert alert-success">
+        <div class="auth-title mb-3">@Model.UserName عزیز خوش آمدید</div>
+        <!-- start of auth-box -->
+        <div class="">
+            <div class="fs-6 fw-bold text-dark text-center mb-3">حساب کاربری شما ساخته شد</div>
+            <div class="fs-7 fw-bold text-muted text-center mb-3">
+                با تشکر از ثبت نام شما در سایت
+                <br />
+                ایمیلی شامل لینک فعال سازی به ایمیل شما (@Model.Email) ارسال شد
+                <br />
+
+                لطفا وارد ایمیل خود شده و اکانت را فعال کنید تا بتوانید از سایت استفاده کنید
+            </div>
+        </div>
+        <!-- end of auth-box -->
+    </div>
+    <!-- end of auth-container -->
+</main>

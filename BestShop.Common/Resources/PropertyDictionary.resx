@@ -165,6 +165,9 @@
   <data name="RePassword" xml:space="preserve">
     <value>تکرار کلمه عبور</value>
   </data>
+  <data name="SuccessRegister" xml:space="preserve">
+    <value>اتمام ثبت نام</value>
+  </data>
   <data name="UserName" xml:space="preserve">
     <value>نام کاربری</value>
   </data>
