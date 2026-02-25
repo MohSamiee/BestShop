@@ -29,7 +29,7 @@ public class AccountService(IUserRepository _userRepository) : IAccountService
 			modelErrors.Add(ModelStateError.MakeModelStateError("UserName", PropertyDictionary.UserNameIsDuplicated));
 		#endregion Check UserName
 
-		if (validation.ModelStateErrors != null && validation.ModelStateErrors.Any())
+		if (modelErrors.Any())
 		{
 			return new OperationResult<User>(false, null!, "Somethings went wrong", modelErrors);
 		}
