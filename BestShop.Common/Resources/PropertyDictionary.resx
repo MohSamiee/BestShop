@@ -132,6 +132,9 @@
   <data name="GnMaxLengthErrorMessage" xml:space="preserve">
     <value>حداکثر طول {0} برابر {1} کاراکتر است.</value>
   </data>
+  <data name="GnMinLengthErrorMessage" xml:space="preserve">
+    <value>حداقل طول {0} برابر {1} کاراکتر است.</value>
+  </data>
   <data name="GnRequiredErrorMessage" xml:space="preserve">
     <value>لطفا {0} را وارد کنید.</value>
   </data>
@@ -140,6 +143,21 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>کلمه عبور</value>
+  </data>
+  <data name="PasswordCantBeEmpty" xml:space="preserve">
+    <value>پسورد نمیتواند خالی باشد</value>
+  </data>
+  <data name="PasswordMustContainDigit" xml:space="preserve">
+    <value>کلمه عبور باید شامل عدد باشد</value>
+  </data>
+  <data name="PasswordMustContainLowerCase" xml:space="preserve">
+    <value>کلمه عبور باید شامل حداقل 1 حرف کوچک باشد</value>
+  </data>
+  <data name="PasswordMustContainSpecialChar" xml:space="preserve">
+    <value>کلمه عبور باید شامل کاراکتر های ویژه باشد</value>
+  </data>
+  <data name="PasswordMustContainUpperCase" xml:space="preserve">
+    <value>کلمه عبور باید شامل حداقل 1 حرف بزرگ باشد</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>ثبت نام</value>

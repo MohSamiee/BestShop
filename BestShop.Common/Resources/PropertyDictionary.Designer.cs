@@ -106,6 +106,15 @@ namespace BestShop.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to حداقل طول {0} برابر {1} کاراکتر است..
+        /// </summary>
+        public static string GnMinLengthErrorMessage {
+            get {
+                return ResourceManager.GetString("GnMinLengthErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to لطفا {0} را وارد کنید..
         /// </summary>
         public static string GnRequiredErrorMessage {
@@ -129,6 +138,51 @@ namespace BestShop.Common.Resources {
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to پسورد نمیتواند خالی باشد.
+        /// </summary>
+        public static string PasswordCantBeEmpty {
+            get {
+                return ResourceManager.GetString("PasswordCantBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کلمه عبور باید شامل عدد باشد.
+        /// </summary>
+        public static string PasswordMustContainDigit {
+            get {
+                return ResourceManager.GetString("PasswordMustContainDigit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کلمه عبور باید شامل حداقل 1 حرف کوچک باشد.
+        /// </summary>
+        public static string PasswordMustContainLowerCase {
+            get {
+                return ResourceManager.GetString("PasswordMustContainLowerCase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کلمه عبور باید شامل کاراکتر های ویژه باشد.
+        /// </summary>
+        public static string PasswordMustContainSpecialChar {
+            get {
+                return ResourceManager.GetString("PasswordMustContainSpecialChar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to کلمه عبور باید شامل حداقل 1 حرف بزرگ باشد.
+        /// </summary>
+        public static string PasswordMustContainUpperCase {
+            get {
+                return ResourceManager.GetString("PasswordMustContainUpperCase", resourceCulture);
             }
         }
         

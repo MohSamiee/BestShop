@@ -14,6 +14,10 @@ builder.Services.RegisterRepositories();
 builder.Services.RegisterServices();
 
 #endregion Register Services
+
+#region Register Options
+builder.RegisterOptionsInjection();
+#endregion Register Options
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

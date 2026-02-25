@@ -1,8 +1,22 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BestShop.Common.Security;
+using BestShop.Common.ViewModels.Options;
+using Microsoft.Extensions.Options;
+using System.ComponentModel.DataAnnotations;
 
 namespace BestShop.Application.Services.Implementations;
-public class AccountService(IUserRepository _userRepository) : IAccountService
+public class AccountService : IAccountService
 {
+	private readonly PasswordPolicyOptions _passwordPolicy;
+	private readonly IUserRepository _userRepository;
+
+	public AccountService(
+		IUserRepository userRepository,
+		IOptions<PasswordPolicyOptions> passwordPolicy)
+	{
+		_passwordPolicy = passwordPolicy.Value;
+		_userRepository = userRepository;
+	}
+
 	public async Task<OperationResult<User>> RegisterUserAsync(RegisterViewModel register)
 	{
 		var modelErrors = new List<ModelStateError>();
@@ -30,9 +44,15 @@ public class AccountService(IUserRepository _userRepository) : IAccountService
 		#endregion Check UserName
 
 		if (modelErrors.Any())
-		{
 			return new OperationResult<User>(false, null!, "Somethings went wrong", modelErrors);
-		}
+
+		#region Check Password
+		var passwordValidation = new PasswordStrengthChecker().Check(_passwordPolicy, register.Password, nameof(register.Password));
+
+		if (!passwordValidation.IsValid)
+			return new OperationResult<User>(false, null!, PropertyDictionary.GnSomethingWenWrong, passwordValidation.Errors);
+		#endregion Check Password
+
 
 		var registeredUser = RegisterViewModel.MapRegisterViewModelToUser(register);
 		_userRepository.Add(registeredUser, true);
