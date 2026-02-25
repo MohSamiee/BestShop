@@ -1,13 +1,7 @@
-﻿using BestShop.Common.OperationResult;
-using BestShop.Common.Resources;
-using Microsoft.Extensions.Options;
-using System.Text.RegularExpressions;
-
+﻿using System.Text.RegularExpressions;
 namespace BestShop.Common.Security;
 public class PasswordStrengthChecker
 {
-
-
 	public PasswordCheckResult Check(PasswordPolicyOptions passwordPolicy, string password, string passwordField = "Password")
 	{
 		var result = new PasswordCheckResult();
