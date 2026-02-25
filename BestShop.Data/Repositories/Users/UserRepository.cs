@@ -42,4 +42,12 @@ public class UserRepository : GenericRepository<User>, IUserRepository
 		if (user == null) return false;
 		return true;
 	}
+
+	public User? GetUserByEmailActivationCode(string activationCode)
+	{
+		var users = GetEntity(u => u.EmailActivationCode == activationCode);
+		if (!users.Any()) return null!;
+		return users.First();
+	}
+
 }

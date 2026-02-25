@@ -1,0 +1,31 @@
+﻿@model OperationResult<User>
+@{
+    ViewData["Title"] = PropertyDictionary.VerifyEmail;
+
+}
+@if (Model.IsSuccess)
+{
+    <main class="page-content container text-center">
+        <div class="alert alert-success">
+            <div class="auth-title mb-3 fs-3">@Model?.Data?.UserName ایمیل شما با موفقیت فعال شد</div>
+            <div class="">
+                <div class="fs-7 fw-bold text-muted text-center mb-3">
+                    حالا میتوانید از تمام امکانات سایت استفاده کنید
+                </div>
+            </div>
+        </div>
+    </main>
+}
+else
+{
+    <main class="page-content container text-center">
+        <div class="alert alert-danger">
+            <div class="auth-title mb-3 fs-3">حساب کاربری یافت نشد</div>
+            <div class="">
+                <div class="fs-7 fw-bold text-muted text-center mb-3">
+                    در صورتی که مشکلی پیش آمده میتوانید با پشتیبانی تماس بگیرید
+                </div>
+            </div>
+        </div>
+    </main>
+}

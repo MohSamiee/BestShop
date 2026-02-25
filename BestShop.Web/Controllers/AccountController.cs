@@ -17,6 +17,7 @@ public class AccountController : Controller
 	{
 		return View("SuccessRegister");
 	}
+
 	#region Register
 	[HttpGet("/Register")]
 	public IActionResult Register()
@@ -44,4 +45,14 @@ public class AccountController : Controller
 	}
 
 	#endregion Register
+
+	#region Activation
+	[HttpGet("VerifyEmail/{activationCode}")]
+	public async Task<IActionResult> VerifyEmail(string activationCode)
+	{
+		var result =await _accountService.ActivateAccount(activationCode);
+
+		return View(result);
+	}
+	#endregion Activation
 }

@@ -230,5 +230,14 @@ namespace BestShop.Common.Resources {
                 return ResourceManager.GetString("UserNameIsDuplicated", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تأیید ایمیل.
+        /// </summary>
+        public static string VerifyEmail {
+            get {
+                return ResourceManager.GetString("VerifyEmail", resourceCulture);
+            }
+        }
     }
 }

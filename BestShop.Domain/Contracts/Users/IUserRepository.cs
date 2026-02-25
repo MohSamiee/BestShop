@@ -5,4 +5,5 @@ public interface IUserRepository : IGenericRepository<User>
 	bool IsEmailExist(string email);
 	User? GetUserByUserName(string userName);
 	bool IsUserNameExist(string userName);
+	User? GetUserByEmailActivationCode(string activationCode);
 }

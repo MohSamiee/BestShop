@@ -1,4 +1,5 @@
-﻿using BestShop.Common.Security;
+﻿using BestShop.Common.Generator;
+using BestShop.Common.Security;
 using BestShop.Common.ViewModels.Options;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
@@ -16,6 +17,7 @@ public class AccountService : IAccountService
 		_passwordPolicy = passwordPolicy.Value;
 		_userRepository = userRepository;
 	}
+
 
 	public async Task<OperationResult<User>> RegisterUserAsync(RegisterViewModel register)
 	{
@@ -59,6 +61,20 @@ public class AccountService : IAccountService
 
 		return new OperationResult<User>(true, registeredUser, "Success");
 	}
+
+	public async Task<OperationResult<User>> ActivateAccount(string activationCode)
+	{
+		var user = _userRepository.GetUserByEmailActivationCode(activationCode);
+		if (user == null)
+			return new OperationResult<User>(false, user, PropertyDictionary.GnSomethingWenWrong);
+
+		user.IsActive = true;
+		user.IsEmailConfirmed = true;
+		user.EmailActivationCode = NameGenerator.GenerateUniqueName();
+		_userRepository.Update(user, true);
+		return new OperationResult<User>(true, user, "");
+	}
+
 
 
 	#region Private

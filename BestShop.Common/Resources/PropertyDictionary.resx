@@ -174,4 +174,7 @@
   <data name="UserNameIsDuplicated" xml:space="preserve">
     <value>نام کاربری تکراری است.</value>
   </data>
+  <data name="VerifyEmail" xml:space="preserve">
+    <value>تأیید ایمیل</value>
+  </data>
 </root>
