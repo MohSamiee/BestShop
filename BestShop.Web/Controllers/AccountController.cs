@@ -24,7 +24,7 @@ public class AccountController : Controller
 	[ValidateAntiForgeryToken]
 	public async Task<IActionResult> Register(RegisterViewModel vm)
 	{
-		if (!ModelState.IsValid)
+		if (!true)
 			return View();
 		var result =await _accountService.RegisterUserAsync(vm);
 

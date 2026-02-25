@@ -79,6 +79,15 @@ namespace BestShop.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ایمیل تکراری است..
+        /// </summary>
+        public static string EmailIsDuplicated {
+            get {
+                return ResourceManager.GetString("EmailIsDuplicated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ایمیل وارد شده معتبر نمی باشد..
         /// </summary>
         public static string GnEmailFormatErrorMessage {
@@ -102,6 +111,15 @@ namespace BestShop.Common.Resources {
         public static string GnRequiredErrorMessage {
             get {
                 return ResourceManager.GetString("GnRequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to خطایی رخ داده است لطفا مجددا تلاش کنید.
+        /// </summary>
+        public static string GnSomethingWenWrong {
+            get {
+                return ResourceManager.GetString("GnSomethingWenWrong", resourceCulture);
             }
         }
         
@@ -138,6 +156,15 @@ namespace BestShop.Common.Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام کاربری تکراری است..
+        /// </summary>
+        public static string UserNameIsDuplicated {
+            get {
+                return ResourceManager.GetString("UserNameIsDuplicated", resourceCulture);
             }
         }
     }

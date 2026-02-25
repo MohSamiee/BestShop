@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Security.AccessControl;
-using BestShop.Common.Resources;
-
+﻿using System.ComponentModel.DataAnnotations;
 namespace BestShop.Domain.ViewModels.Account;
 public class RegisterViewModel
 {
@@ -31,4 +27,44 @@ public class RegisterViewModel
 	[Compare(nameof(Password), ErrorMessageResourceName = "ComparePasswordErrorMessage", ErrorMessageResourceType = typeof(PropertyDictionary))]
 	public string RePassword { get; set; }
 
+	public static User MapRegisterViewModelToUser(RegisterViewModel vm)
+	{
+		var user = new User()
+		{
+			//Id = ,
+			Guid = Guid.NewGuid(),
+			CreatedDate = DateTime.Now,
+			CreatedUserId = null,
+			LastModifiedDate = null,
+			LastModifiedUserId = null,
+			Description = null,
+			IsActive = false,
+			IsDeleted = false,
+
+			FirstName = null,
+			LastName = null,
+			Avatar = "DefaultAvatar.PNG",
+			HashedPassword = vm.Password.Hash(),
+
+			NormalizedUserName = vm.UserName.Normalize(),
+			UserName = vm.UserName,
+
+
+			Email = vm.Email,
+			NormalizedEmail = vm.Email.Normalize(),
+			IsEmailConfirmed = false,
+			EmailActivationCode = NameGenerator.GenerateUniqueName(),
+			ExpireEmailActivationCode = DateTime.Now.AddHours(2),
+
+			Mobile = null,
+			MobileActivationCode = null,
+			IsMobileConfirmed = false,
+			ExpireMobileActivationCode = null,
+
+			LastLoginTime = null,
+			AccessFailedCount = 0,
+		};
+
+		return user;
+	}
 }

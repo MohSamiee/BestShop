@@ -123,6 +123,9 @@
   <data name="Email" xml:space="preserve">
     <value>ایمیل</value>
   </data>
+  <data name="EmailIsDuplicated" xml:space="preserve">
+    <value>ایمیل تکراری است.</value>
+  </data>
   <data name="GnEmailFormatErrorMessage" xml:space="preserve">
     <value>ایمیل وارد شده معتبر نمی باشد.</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="GnRequiredErrorMessage" xml:space="preserve">
     <value>لطفا {0} را وارد کنید.</value>
+  </data>
+  <data name="GnSomethingWenWrong" xml:space="preserve">
+    <value>خطایی رخ داده است لطفا مجددا تلاش کنید</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>کلمه عبور</value>
@@ -143,5 +149,8 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>نام کاربری</value>
+  </data>
+  <data name="UserNameIsDuplicated" xml:space="preserve">
+    <value>نام کاربری تکراری است.</value>
   </data>
 </root>

@@ -25,8 +25,8 @@ public class User : BaseEntity<int>
 	public string HashedPassword { get; set; }
 
 
-	public string Mobile { get; set; }
-	public string MobileActivationCode{ get; set; }
+	public string? Mobile { get; set; }
+	public string? MobileActivationCode{ get; set; }
 	public bool IsMobileConfirmed { get; set; }
 	public DateTime? ExpireMobileActivationCode { get; set; }
 

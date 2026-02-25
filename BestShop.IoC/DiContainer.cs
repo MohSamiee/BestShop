@@ -5,7 +5,7 @@ public static class DiContainer
 {
 	public static void RegisterServices(this IServiceCollection services)
 	{
-		services.AddScoped<IAccountService, IAccountService>();
+		services.AddScoped<IAccountService, AccountService>();
 
 	}
 
