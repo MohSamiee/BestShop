@@ -1,5 +1,6 @@
 using BestShop.IoC;
 using BestShop.Web.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,22 @@ builder.Services.RegisterServices();
 #region Register Options
 builder.RegisterOptionsInjection();
 #endregion Register Options
+
+#region Auth
+builder.Services.AddAuthentication(options =>
+{
+	options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+	options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+	options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
+}).AddCookie(options =>
+{
+	options.LoginPath = "/Login";
+	options.LogoutPath = "/Logout";
+	options.ExpireTimeSpan = TimeSpan.FromDays(30);
+});
+#endregion Auth
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -33,7 +50,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthorization();
 app.UseAuthorization();
 
 app.MapStaticAssets();

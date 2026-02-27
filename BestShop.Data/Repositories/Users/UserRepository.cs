@@ -49,5 +49,11 @@ public class UserRepository : GenericRepository<User>, IUserRepository
 		if (!users.Any()) return null!;
 		return users.First();
 	}
+	public User? GetUserByEmailOrUserName(string emailOrUserName)
+	{
+		var normal = emailOrUserName.Normalize();
+		var user = GetEntity(u => u.NormalizedEmail == normal || u.NormalizedUserName == normal).SingleOrDefault();
+		return user;
+	}
 
 }

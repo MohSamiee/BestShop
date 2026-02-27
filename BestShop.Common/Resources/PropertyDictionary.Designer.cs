@@ -61,6 +61,15 @@ namespace BestShop.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to با اطلاعات وارد شده کاربری یافت نشد.
+        /// </summary>
+        public static string BaseOnInputUserNotFound {
+            get {
+                return ResourceManager.GetString("BaseOnInputUserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to کلمات عبور  یکسان نیست.
         /// </summary>
         public static string ComparePasswordErrorMessage {
@@ -84,6 +93,15 @@ namespace BestShop.Common.Resources {
         public static string EmailIsDuplicated {
             get {
                 return ResourceManager.GetString("EmailIsDuplicated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فراموشی کلمه عبور.
+        /// </summary>
+        public static string ForgotPassword {
+            get {
+                return ResourceManager.GetString("ForgotPassword", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace BestShop.Common.Resources {
         public static string GnSomethingWenWrong {
             get {
                 return ResourceManager.GetString("GnSomethingWenWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ورود.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
@@ -196,6 +223,15 @@ namespace BestShop.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to مرا به خاطر بسپار.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تکرار کلمه عبور.
         /// </summary>
         public static string RePassword {
@@ -228,6 +264,24 @@ namespace BestShop.Common.Resources {
         public static string UserNameIsDuplicated {
             get {
                 return ResourceManager.GetString("UserNameIsDuplicated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام کاربری فعال نشده است. .
+        /// </summary>
+        public static string UserNameIsNotActivated {
+            get {
+                return ResourceManager.GetString("UserNameIsNotActivated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نام کاربری یا ایمیل.
+        /// </summary>
+        public static string UserNameOrEmail {
+            get {
+                return ResourceManager.GetString("UserNameOrEmail", resourceCulture);
             }
         }
         

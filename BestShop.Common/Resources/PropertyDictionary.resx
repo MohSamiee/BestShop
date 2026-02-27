@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BaseOnInputUserNotFound" xml:space="preserve">
+    <value>با اطلاعات وارد شده کاربری یافت نشد</value>
+  </data>
   <data name="ComparePasswordErrorMessage" xml:space="preserve">
     <value>کلمات عبور  یکسان نیست</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="EmailIsDuplicated" xml:space="preserve">
     <value>ایمیل تکراری است.</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>فراموشی کلمه عبور</value>
   </data>
   <data name="GnEmailFormatErrorMessage" xml:space="preserve">
     <value>ایمیل وارد شده معتبر نمی باشد.</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="GnSomethingWenWrong" xml:space="preserve">
     <value>خطایی رخ داده است لطفا مجددا تلاش کنید</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>کلمه عبور</value>
@@ -162,6 +171,9 @@
   <data name="Register" xml:space="preserve">
     <value>ثبت نام</value>
   </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>مرا به خاطر بسپار</value>
+  </data>
   <data name="RePassword" xml:space="preserve">
     <value>تکرار کلمه عبور</value>
   </data>
@@ -173,6 +185,12 @@
   </data>
   <data name="UserNameIsDuplicated" xml:space="preserve">
     <value>نام کاربری تکراری است.</value>
+  </data>
+  <data name="UserNameIsNotActivated" xml:space="preserve">
+    <value>نام کاربری فعال نشده است. </value>
+  </data>
+  <data name="UserNameOrEmail" xml:space="preserve">
+    <value>نام کاربری یا ایمیل</value>
   </data>
   <data name="VerifyEmail" xml:space="preserve">
     <value>تأیید ایمیل</value>

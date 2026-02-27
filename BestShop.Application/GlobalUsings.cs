@@ -4,3 +4,7 @@ global using BestShop.Domain.ViewModels.Account;
 global using BestShop.Application.Services.Interfaces;
 global using BestShop.Domain.Contracts.Users;
 global using BestShop.Common.Resources;
+global using BestShop.Application.Enums;
+global using BestShop.Common.Generator;
+global using BestShop.Common.Security;
+global using BestShop.Common.ViewModels.Options;

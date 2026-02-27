@@ -1,4 +1,4 @@
-﻿namespace BestShop.Domain.Enums;
+﻿namespace BestShop.Application.Enums;
 public enum RegisterUserResultEnum
 {
 	Success,

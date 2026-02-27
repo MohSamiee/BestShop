@@ -1,6 +1,4 @@
-﻿using BestShop.Common.Generator;
-using BestShop.Common.Security;
-using BestShop.Common.ViewModels.Options;
+﻿
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 
@@ -75,6 +73,39 @@ public class AccountService : IAccountService
 		return new OperationResult<User>(true, user, "");
 	}
 
+	public async Task<OperationResult<User>> VerifyLogin(LoginViewModel login)
+	{
+		var user = _userRepository.GetUserByEmailOrUserName(login.UserNameOrEmail);
+		if (user == null)
+			return new OperationResult<User>(
+				false,
+				null!,
+				string.Empty,
+				ModelStateError.MakeModelStateError(nameof(login.UserNameOrEmail), PropertyDictionary.BaseOnInputUserNotFound));
+		if (!PasswordHasher.Verify(login.Password, user.HashedPassword))
+		{
+			user.AccessFailedCount += 1;
+			_userRepository.Update(user, true);
+
+			return new OperationResult<User>(
+				false,
+				null,
+				string.Empty,
+				ModelStateError.MakeModelStateError(nameof(login.UserNameOrEmail), PropertyDictionary.BaseOnInputUserNotFound));
+		}
+
+		if (!user.IsActive)
+			return new OperationResult<User>(
+				false,
+				user,
+				string.Empty,
+				ModelStateError.MakeModelStateError(nameof(login.UserNameOrEmail), PropertyDictionary.UserNameIsNotActivated));
+		return new OperationResult<User>(
+			true,
+			user,
+			string.Empty
+			);
+	}
 
 
 	#region Private
