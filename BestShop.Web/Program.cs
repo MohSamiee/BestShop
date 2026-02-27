@@ -1,6 +1,4 @@
-using BestShop.IoC;
-using BestShop.Web.Extensions;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using BestShop.Web.Extensions.Register;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,19 +19,7 @@ builder.RegisterOptionsInjection();
 #endregion Register Options
 
 #region Auth
-builder.Services.AddAuthentication(options =>
-{
-	options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-	options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-	options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-	options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-
-}).AddCookie(options =>
-{
-	options.LoginPath = "/Login";
-	options.LogoutPath = "/Logout";
-	options.ExpireTimeSpan = TimeSpan.FromDays(30);
-});
+builder.RegisterCookieAuthorize();
 #endregion Auth
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -52,17 +38,7 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
 app.UseAuthorization();
-
 app.MapStaticAssets();
-
-
-app.UseEndpoints(endpoints =>
-{
-	endpoints.MapControllerRoute(
-	  name: "areas",
-	  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-	);
-	endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}").WithStaticAssets();
-});
-
+// Extenstion Method
+app.RegisterRouting();
 app.Run();

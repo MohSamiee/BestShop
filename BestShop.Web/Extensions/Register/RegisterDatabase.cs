@@ -1,7 +1,7 @@
 ﻿using BestShop.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace BestShop.Web.Extensions
+namespace BestShop.Web.Extensions.Register
 {
 	public static class RegisterDatabase
 	{

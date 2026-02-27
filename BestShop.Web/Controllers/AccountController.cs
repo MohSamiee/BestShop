@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using BestShop.Web.Extensions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace BestShop.Web.Controllers;
 public class AccountController : Controller
@@ -9,10 +12,12 @@ public class AccountController : Controller
 
 	#region Constructor
 	private readonly IAccountService _accountService;
+	private readonly IHttpContextAccessor _httpContextAccessor;
 
-	public AccountController(IAccountService accountService)
+	public AccountController(IAccountService accountService, IHttpContextAccessor httpContextAccessor)
 	{
 		_accountService = accountService;
+		_httpContextAccessor = httpContextAccessor;
 	}
 	#endregion Constructor
 
@@ -83,28 +88,17 @@ public class AccountController : Controller
 					ModelState.AddModelError(error.ModelStateField, error.ModelStateErrorMessage);
 				}
 			}
+		await new LoginService(_httpContextAccessor).LoginUserByCookie(res.Data!, vm.RememberMe);
 
-		var claims = new List<Claim>()
-		{
-			new Claim(ClaimTypes.NameIdentifier,res.Data!.Id.ToString()),
-			new Claim(ClaimTypes.Name,res.Data.UserName)
-		};
-		var identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
-		var principal = new ClaimsPrincipal(identity);
-		var properties = new AuthenticationProperties
-		{
-			IsPersistent = vm.RememberMe,
-		};
-		await HttpContext.SignInAsync(principal, properties);
-		return Redirect(vm.ReturnUrl??"/");
+		return Redirect(vm.ReturnUrl ?? "/");
 	}
 	#endregion Login
 
 	#region Logout
 	[HttpGet("/Logout")]
-	public IActionResult Logout()
+	public async Task<IActionResult> Logout()
 	{
-		HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+		await new LoginService(_httpContextAccessor).LogoutUserByCookie();
 		return Redirect("/");
 	}
 	#endregion Logout

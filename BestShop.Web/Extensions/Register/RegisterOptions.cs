@@ -1,6 +1,6 @@
 ﻿using BestShop.Common.ViewModels.Options;
 
-namespace BestShop.Web.Extensions
+namespace BestShop.Web.Extensions.Register
 {
 	public static class RegisterOptions
 	{
