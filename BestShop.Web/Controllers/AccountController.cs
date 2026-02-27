@@ -68,7 +68,6 @@ public class AccountController : Controller
 	[HttpGet("Login")]
 	public async Task<IActionResult> Login(string? ReturnUrl)
 	{
-		ViewBag.ReturnUrl = ReturnUrl;
 		return View();
 	}
 
@@ -81,13 +80,16 @@ public class AccountController : Controller
 
 		var res = await _accountService.VerifyLogin(vm);
 		if (!res.IsSuccess)
+		{
 			if (res.ModelStateErrors != null && res.ModelStateErrors.Any())
 			{
 				foreach (var error in res.ModelStateErrors)
 				{
 					ModelState.AddModelError(error.ModelStateField, error.ModelStateErrorMessage);
 				}
+				return View(vm);
 			}
+		}
 		await new LoginService(_httpContextAccessor).LoginUserByCookie(res.Data!, vm.RememberMe);
 
 		return Redirect(vm.ReturnUrl ?? "/");

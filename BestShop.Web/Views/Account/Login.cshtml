@@ -19,7 +19,7 @@
     <div class="auth-title mb-3">@PropertyDictionary.Register</div>
     <div class="auth-box ui-box">
         <form asp-controller="Account" asp-action="Login" class="auth-form">
-            @Html.HiddenFor(a => a.ReturnUrl);
+            @Html.HiddenFor(a => a.ReturnUrl)
             <div class="form-element-row mb-2">
                 <input asp-for="UserNameOrEmail" class="form-control" placeholder="@PropertyDictionary.UserNameOrEmail">
             </div>

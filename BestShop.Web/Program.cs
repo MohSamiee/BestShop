@@ -1,7 +1,7 @@
 using BestShop.Web.Extensions.Register;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddHttpContextAccessor();
 #region Register Database
 builder.ConfigDatabase();
 #endregion Register Database
